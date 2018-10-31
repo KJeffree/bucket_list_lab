@@ -1,4 +1,5 @@
 const BucketListFormView = require("./views/bucket_list_form_view.js");
+const BucketListUpdateForm = require("./views/bucket_list_update_form.js");
 const BucketListGridView = require("./views/bucket_list_grid_view.js");
 const BucketList = require("./models/bucket_list.js");
 
@@ -8,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const bucketListForm = document.querySelector("form#activity-form");
   const bucketListFormView = new BucketListFormView(bucketListForm);
   bucketListFormView.bindEvents();
+
+  const bucketListUpdateForm = document.querySelector("form#activity-form");
+  const bucketListUpdateView = new BucketListUpdateForm(bucketListUpdateForm);
+  bucketListUpdateView.bindEvents();
 
   const activitiesContainer = document.querySelector("div#activities");
   const activitiesGridView = new BucketListGridView(activitiesContainer);

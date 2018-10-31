@@ -22,13 +22,22 @@
         <div>
           <label for="type">Type:</label>
           <input type="text" id="type"/>
+          <!-- <select id="type">
+            <option disabled selected></option>
+            <option value="Educational">Educational</option>
+            <option value="Sport">Sport</option>
+            <option value="Outdoor">Outdoor</option>
+            <option value="Recreational">Recreational</option>
+            <option value="Food and Drink">Food and Drink</option>
+          </select> -->
         </div>
 
         <div>
           <label for="date">Complete By:</label>
           <input type="date" id="date"/>
         </div>
-
+        <input type="hidden" name="isUpdate" value="false" id="isUpdate">
+        <input type="hidden" name="_id" id="_id">
         <input type="submit" id="save" value="Save"/>
 
       </form>

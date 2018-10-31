@@ -20,6 +20,9 @@ BucketListView.prototype.display = function (activityItem) {
   const deleteButton = this.createDeleteButton(activityItem._id);
   activityContainer.appendChild(deleteButton);
 
+  const updateButton = this.createUpdateButton(activityItem._id);
+  activityContainer.appendChild(updateButton);
+
   this.container.appendChild(activityContainer);
 };
 
@@ -45,6 +48,18 @@ BucketListView.prototype.createDeleteButton = function (activityId) {
     PubSub.publish('BucketListView:delete-clicked', event.target.value)
   });
 
+  return button;
+};
+
+BucketListView.prototype.createUpdateButton = function (activityId) {
+  const button = document.createElement('button');
+  button.classList.add('update-button');
+  button.value = activityId;
+  button.textContent = "Edit"
+
+  button.addEventListener('click', (event) => {
+    PubSub.publish('BucketListView:edit-clicked', event.target.value)
+  });
   return button;
 };
 
