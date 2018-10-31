@@ -3,7 +3,7 @@ db.dropDatabase();
 
 db.activities.insertMany([
   {
-    activity: "Defeat Voldermort",
+    activity: "Defeat Voldemort",
     type: "Recreational",
     date: "2018-12-25"
   },
