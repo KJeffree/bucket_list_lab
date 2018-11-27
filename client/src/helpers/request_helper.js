@@ -29,6 +29,8 @@ RequestHelper.prototype.post = function (payload) {
 };
 
 RequestHelper.prototype.put = function (id, payload) {
+  console.log("id:", id);
+  console.log("payload:", payload);
   return fetch(`${this.url}/${id}`, {
     method: "PUT",
     body: JSON.stringify(payload),

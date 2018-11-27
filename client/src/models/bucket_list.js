@@ -17,6 +17,7 @@ BucketList.prototype.bindEvents = function () {
     this.getOne(event.detail);
   });
   PubSub.subscribe("BucketListUpdateForm:update-submitted", (event) => {
+    console.log("EVENT DETAIL:", event.detail);
     this.updateActivity(event.detail, event.detail._id);
   })
 };
@@ -47,6 +48,7 @@ BucketList.prototype.getOne = function (activityId) {
 
 BucketList.prototype.updateActivity = function (activity, activityId) {
   delete activity._id;
+  console.log("ActivityID:", activityId);
   this.request.put(activityId, activity)
     .then((activities) => {
       PubSub.publish("BucketList:data-loaded", activities)

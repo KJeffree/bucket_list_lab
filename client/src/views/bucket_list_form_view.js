@@ -5,9 +5,19 @@ const BucketListFormView = function (form) {
 };
 
 BucketListFormView.prototype.bindEvents = function () {
+  this.createSubmit();
   this.form.addEventListener('submit', (event) => {
     this.handleSubmit(event);
   });
+};
+
+BucketListFormView.prototype.createSubmit = function () {
+  const submit = document.createElement('button');
+  submit.type = "submit";
+  submit.id = "save";
+  submit.value = "Save";
+  submit.textContent = "Save"
+  this.form.appendChild(submit);
 };
 
 BucketListFormView.prototype.handleSubmit = function (event) {

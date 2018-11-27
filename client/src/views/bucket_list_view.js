@@ -1,4 +1,5 @@
 const PubSub = require("../helpers/pub_sub.js");
+const BucketListUpdateForm = require('./bucket_list_update_form.js')
 
 const BucketListView = function (container) {
   this.container = container;
@@ -59,6 +60,9 @@ BucketListView.prototype.createUpdateButton = function (activityId) {
 
   button.addEventListener('click', (event) => {
     PubSub.publish('BucketListView:edit-clicked', event.target.value)
+    const bucketListUpdateForm = document.querySelector("form#activity-form");
+    const bucketListUpdateView = new BucketListUpdateForm(bucketListUpdateForm);
+    bucketListUpdateView.bindEvents();
   });
   return button;
 };
